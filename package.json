@@ -25,7 +25,7 @@
   },
   "peerDependencies": {
     "tcomb-validation": "^3.3.0",
-    "tcomb-express-router": "^0.1.0"
+    "express-router-tcomb": "^0.1.0"
   },
   "devDependencies": {
     "ava": "^0.14.0",
