@@ -1,7 +1,7 @@
 {
   "name": "express-router-tcomb-test",
   "description": "Test agent for express-router-tcomb",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "scripts": {
     "lint": "eslint '*.js'",
