@@ -64,4 +64,7 @@ test('test error', async assert => {
   } catch (e) {
     assert.truthy(e);
   }
+
+  const { body } = await agent.get('/api/v1/items/:id', { params: { id }, validateResponse: false });
+  assert.truthy(body);
 });

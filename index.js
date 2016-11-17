@@ -17,7 +17,7 @@ function Agent(app) {
 }
 
 methods.forEach(method => {
-  Agent.prototype[method] = function(path, { query, params = {}, body } = {}) {
+  Agent.prototype[method] = function(path, { query, params = {}, body, validateResponse = true } = {}) {
     const route = findRoute(this.app, method, path);
 
     if (!route) {
@@ -47,10 +47,12 @@ methods.forEach(method => {
 
     return req
       .then(res => {
-        const error = getError(res.body, schema.response, { strict: true });
+        if (validateResponse) {
+          const error = getError(res.body, schema.response, { strict: true });
 
-        if (error) {
-          return Promise.reject(new Error(`Response Body Validation Error (${method.toUpperCase()} ${url}):\n${error}`));
+          if (error) {
+            return Promise.reject(new Error(`Response Body Validation Error (${method.toUpperCase()} ${url}):\n${error}`));
+          }
         }
 
         return res;
