@@ -15,7 +15,7 @@ $ npm install express-router-tcomb-test --save-dev
 ```js
 'use strict';
 
-const express = reuqire('express');
+const express = require('express');
 const t = require('tcomb');
 
 const Router = require('express-router-tcomb');
